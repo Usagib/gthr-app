@@ -1,7 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const url='https://api.magicthegathering.io/v1/cards?page=1';
+const url='https://api.magicthegathering.io/v1/cards';
+
+var mtgHeaders = new Headers({
+  "Page-Size": "10",
+  "Count": "20",
+  "Total-Count": "200",
+});
+
+var mtgInit = {
+  headers: mtgHeaders,
+  mode: 'cors',
+};
+
+var mtgRequest = new Request(url, mtgInit);
+
+
 
 export default class Api extends React.Component {
   constructor(props) {
@@ -16,10 +31,10 @@ export default class Api extends React.Component {
 
   handleApiCall(event) {
     event.preventDefault();
-    fetch(url, { mode: 'cors' }).then(response => response.json())
+    fetch(mtgRequest).then(response => response.json())
       .then(data => {
         const {
-          card
+          cards
         } = data;
         console.log(data);
         return true;
