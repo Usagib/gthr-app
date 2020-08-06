@@ -1,9 +1,15 @@
-const TEST_OK = 'TEST_OK';
+const SEARCH_CARD = 'SEARCH_CARD';
+const FILTER_CHANGE = 'FILTER_CHANGE';
 
-const testOkay = () => (
-  { type: TEST_OK }
-);
+const searchCard = request => {
+  { type: SEARCH_CARD, request }
+};
+
+const filterChange = filter => {
+  { type: FILTER_CHANGE, filter }
+};
 
 export {
-  Test,
+  searchCard,
+  filterChange,
 };
