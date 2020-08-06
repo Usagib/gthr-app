@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Card from '../components/Card';
 
 class Catalog extends React.Component {
   constructor(props) {
@@ -7,17 +8,22 @@ class Catalog extends React.Component {
   }
 
   render() {
-    const { cards } = this.props;
+    const { cardList } = this.props;
     return (
       <div>
-        <p>{cards}</p>
+        {cardList.map(card => (
+          <Card
+            key={card.name}
+            card={card}
+          />
+        ))}
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  cards: state.cards,
+  cardList: state.cards,
 });
 
 export default connect(mapStateToProps, null)(Catalog);

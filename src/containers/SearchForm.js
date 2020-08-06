@@ -7,9 +7,6 @@ class SearchForm extends React.Component {
     super(props);
     this.state = {
       name: '',
-      type: '',
-      set: '',
-      text: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,21 +15,23 @@ class SearchForm extends React.Component {
   handleChange(event) {
     event.preventDefault();
     switch (event.target.id) {
-      case 'Search':
+      case 'Name':
         this.setState({
-          name: event.target.value;
+          name: event.target.value,
         });
         break;
       default:
         return this.state;
     }
+    return false;
   }
 
   handleSubmit(event) {
+    const { searchSubmit } = this.props;
     event.preventDefault();
     searchSubmit(this.state);
     this.setState({
-      name:'';
+      name:'',
     });
     return true;
   }
@@ -66,4 +65,4 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-export default connect(null, null)(SearchForm);
+export default connect(null, mapDispatchToProps)(SearchForm);
