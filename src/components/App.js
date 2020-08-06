@@ -1,7 +1,10 @@
 import React from 'react';
+import Api from '../containers/Api';
 
-const App = () => {
+const App = () => (
   <div>
-    <p>hellou</p>
+    <Api />
   </div>
-}
+)
+
+export default App;
