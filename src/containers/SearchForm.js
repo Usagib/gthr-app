@@ -1,10 +1,15 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { searchCard } from '../actions/index';
 
-export default class SearchForm extends React.Component {
+class SearchForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: ''
+      name: '',
+      type: '',
+      set: '',
+      text: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -12,24 +17,36 @@ export default class SearchForm extends React.Component {
 
   handleChange(event) {
     event.preventDefault();
-    console.log('handleChange');
-    return true;
+    switch (event.target.id) {
+      case 'Search':
+        this.setState({
+          name: event.target.value;
+        });
+        break;
+      default:
+        return this.state;
+    }
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log('Handle submit');
+    searchSubmit(this.state);
+    this.setState({
+      name:'';
+    });
     return true;
   }
 
   render() {
+    const { name } = this.state;
     return (
       <div>
         <form>
           <input
+            type="text"
             onChange={this.handleChange}
             placeholder="search"
-            value="test"
+            value={name}
           />
           <button
             type="submit"
@@ -42,3 +59,11 @@ export default class SearchForm extends React.Component {
     );
   }
 }
+
+const mapDispatchToProps = dispatch => ({
+  searchSubmit: card => {
+    dispatch(searchCard(card));
+  },
+});
+
+export default connect(null, null)(SearchForm);
