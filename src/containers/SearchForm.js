@@ -43,6 +43,7 @@ class SearchForm extends React.Component {
         <form>
           <input
             type="text"
+            id="Name"
             onChange={this.handleChange}
             placeholder="search"
             value={name}

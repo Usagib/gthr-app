@@ -5,9 +5,9 @@ import Catalog from '../containers/Catalog';
 
 const App = () => (
   <div>
-    <Api />
-    <Catalog />
     <SearchForm />
+    <Catalog />
+    <Api />
   </div>
 )
 
