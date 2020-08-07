@@ -1,44 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import mtg from 'mtgsdk';
 
-const url='https://api.magicthegathering.io/v1/cards';
-
-var mtgHeaders = new Headers();
-mtgHeaders.append('Total-Count', '20');
-
-var mtgInit = {
-  headers: mtgHeaders,
-  mode: 'cors',
-};
-
-var mtgRequest = new Request(url, mtgInit);
-
-
-
-export default class Api extends React.Component {
+class Api extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      name: '',
-      number: '',
-      id: '',
-    };
     this.handleApiCall = this.handleApiCall.bind(this);
   }
 
   handleApiCall(event) {
     event.preventDefault();
-    fetch(mtgRequest).then(response => response.json())
-      .then(data => {
-        const {
-          cards
-        } = data;
-        console.log(data);
-        return true;
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    const { search } = this.props;
+    const { name, text, colors } = search;
+    console.log(search);
+    mtg.card.where({
+      name: name,
+      text: text,
+      colors: colors,
+      Count: '2',
+    })
+    .then(cards => {
+      console.log(cards[0].name);
+    });
   }
 
   render() {
@@ -55,3 +38,9 @@ export default class Api extends React.Component {
   }
 
 }
+
+const mapStateToProps = state => ({
+  search: state,
+});
+
+export default connect(mapStateToProps, null)(Api);

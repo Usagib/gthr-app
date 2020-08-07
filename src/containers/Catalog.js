@@ -11,12 +11,6 @@ class Catalog extends React.Component {
     const { cardList } = this.props;
     return (
       <div>
-        {cardList.map(card => (
-          <Card
-            key={card.name}
-            card={card}
-          />
-        ))}
       </div>
     );
   }

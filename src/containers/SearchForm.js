@@ -1,15 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { searchCard } from '../actions/index';
+import Card from '../components/Card';
+import mtg from 'mtgsdk';
 
 class SearchForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: '',
+      searchName:'',
+      searchText:'',
       name: '',
+      text: '',
+      colors: '',
+      manaCost: '',
+      type: '',
+      imageUrl: '',
+      card: '',
     };
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleApiCall = this.handleApiCall.bind(this);
   }
 
   handleChange(event) {
@@ -17,7 +28,12 @@ class SearchForm extends React.Component {
     switch (event.target.id) {
       case 'Name':
         this.setState({
-          name: event.target.value,
+          searchName: event.target.value,
+        });
+        break;
+      case 'Text':
+        this.setState({
+          searchText: event.target.value,
         });
         break;
       default:
@@ -26,18 +42,45 @@ class SearchForm extends React.Component {
     return false;
   }
 
-  handleSubmit(event) {
+  handleApiCall(event) {
+    const { searchName, searchText } = this.state;
     const { searchSubmit } = this.props;
     event.preventDefault();
-    searchSubmit(this.state);
-    this.setState({
-      name:'',
+    mtg.card.where({
+      name: searchName,
+      text: searchText,
+    })
+    .then(cards => {
+      let length = cards.length;
+      if (cards.length > 20) {
+        length = 20;
+      }
+      for (var i = 0; i < length; i++) {
+        this.setState({
+          id: cards[i].id,
+          name: cards[i].name,
+          text: cards[i].text,
+          colors: cards[i].colors,
+          manaCost: cards[i].manaCost,
+          type: cards[i].type,
+          imageUrl: cards[i].imageUrl,
+        });
+        searchSubmit(this.state);
+      }
+      this.setState({
+        name: '',
+        text: '',
+        colors: '',
+        manaCost: '',
+        type: '',
+        imageUrl: '',
+      });
     });
-    return true;
   }
 
   render() {
-    const { name } = this.state;
+    const { searchName, searchText, name, text, colors, manaCost, type, imageUrl} = this.state;
+    const { cardList } = this.props;
     return (
       <div>
         <form>
@@ -45,16 +88,63 @@ class SearchForm extends React.Component {
             type="text"
             id="Name"
             onChange={this.handleChange}
-            placeholder="search"
-            value={name}
+            placeholder="Name"
+            value={searchName}
+          />
+          <input
+            type="text"
+            id="Text"
+            onChange={this.handleChange}
+            placeholder="Text"
+            value={searchText}
           />
           <button
             type="submit"
-            onClick={this.handleSubmit}
+            onClick={this.handleApiCall}
           >
-            Submit request
+            Call
+          </button>
+
+          <button
+            type="button"
+            onClick={() => window.location.reload(false)}
+          >
+            Reset
           </button>
         </form>
+        <p>{JSON.stringify(this.state)}</p>
+        <div>
+          <ul>
+            <li>
+              Name: {name}
+            </li>
+            <li>
+              Text: {text}
+            </li>
+            <li>
+              Colors: {colors}
+            </li>
+            <li>
+              Mana Cost: {manaCost}
+            </li>
+            <li>
+              Type: {type}
+            </li>
+            <li>
+              <img src={imageUrl} />
+            </li>
+          </ul>
+        </div>
+        <div>
+          {
+            cardList.map(card => (
+              <Card
+                key={`card-${card.id}`}
+                card={card}
+              />
+            ))
+          }
+        </div>
       </div>
     );
   }
@@ -66,4 +156,8 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-export default connect(null, mapDispatchToProps)(SearchForm);
+const mapStateToProps = state => ({
+  cardList: state.cards,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchForm);

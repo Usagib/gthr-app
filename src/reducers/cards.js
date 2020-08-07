@@ -2,10 +2,15 @@ const SEARCH_CARD = 'SEARCH_CARD';
 
 const initialState = [
   {
-    name: 'testname',
-  },
-  {
-    name: 'testname2',
+    id: '',
+    searchName:'',
+    searchText:'',
+    name: '',
+    text: '',
+    colors: '',
+    manaCost: '',
+    type: '',
+    imageUrl: '',
   },
 ];
 
