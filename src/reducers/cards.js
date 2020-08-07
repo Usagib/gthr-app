@@ -10,6 +10,7 @@ const initialState = [
     colors: '',
     manaCost: '',
     type: '',
+    types: '',
     imageUrl: '',
   },
 ];

@@ -4,6 +4,7 @@ import { searchCard } from '../actions/index';
 import Card from '../components/Card';
 import mtg from 'mtgsdk';
 
+
 class SearchForm extends React.Component {
   constructor(props) {
     super(props);
@@ -16,6 +17,7 @@ class SearchForm extends React.Component {
       colors: '',
       manaCost: '',
       type: '',
+      types: '',
       imageUrl: '',
       card: '',
     };
@@ -63,6 +65,7 @@ class SearchForm extends React.Component {
           colors: cards[i].colors,
           manaCost: cards[i].manaCost,
           type: cards[i].type,
+          types: cards[i].types,
           imageUrl: cards[i].imageUrl,
         });
         searchSubmit(this.state);
@@ -114,36 +117,7 @@ class SearchForm extends React.Component {
         </form>
         <p>{JSON.stringify(this.state)}</p>
         <div>
-          <ul>
-            <li>
-              Name: {name}
-            </li>
-            <li>
-              Text: {text}
-            </li>
-            <li>
-              Colors: {colors}
-            </li>
-            <li>
-              Mana Cost: {manaCost}
-            </li>
-            <li>
-              Type: {type}
-            </li>
-            <li>
-              <img src={imageUrl} />
-            </li>
-          </ul>
-        </div>
-        <div>
-          {
-            cardList.map(card => (
-              <Card
-                key={`card-${card.id}`}
-                card={card}
-              />
-            ))
-          }
+
         </div>
       </div>
     );

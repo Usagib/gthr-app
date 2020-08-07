@@ -1,15 +1,15 @@
 const SEARCH_CARD = 'SEARCH_CARD';
-const FILTER_CHANGE = 'FILTER_CHANGE';
+const CHANGE_FILTER = 'CHANGE_FILTER';
 
 const searchCard = card => (
   { type: SEARCH_CARD, card }
 );
 
-const filterChange = filter => (
-  { type: FILTER_CHANGE, filter }
+const changeFilter = filter => (
+  { type: CHANGE_FILTER, filter }
 );
 
 export {
   searchCard,
-  filterChange,
+  changeFilter,
 };

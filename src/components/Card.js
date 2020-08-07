@@ -4,7 +4,7 @@ const Card = props => {
   const { card } = props;
   const { imageUrl } = card;
   return (
-      <img src={ imageUrl }></img>
+      <img style={{width: '200px',}} src={ imageUrl }></img>
   );
 };
 
