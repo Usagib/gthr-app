@@ -3,11 +3,8 @@ import { connect } from 'react-redux';
 
 const url='https://api.magicthegathering.io/v1/cards';
 
-var mtgHeaders = new Headers({
-  "Page-Size": "10",
-  "Count": "20",
-  "Total-Count": "200",
-});
+var mtgHeaders = new Headers();
+mtgHeaders.append('Total-Count', '20');
 
 var mtgInit = {
   headers: mtgHeaders,
