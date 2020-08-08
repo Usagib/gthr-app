@@ -19,12 +19,22 @@ class Catalog extends React.Component {
     const { cardList, filter } = this.props;
     let filterCatalog = cardList;
 
-    if(filter !== 'Types') {
+    if(filter.types !== 'Types') {
       filterCatalog = cardList.filter(card => card.types.includes(filter));
     }
-
+    if (filter.colors !== 'Colors') {
+      filterCatalog = cardList.filter(card => card.colors.includes(filter));
+    }
     return (
       <div>
+        {
+          cardList.map(card => (
+            <Card
+              key={`card-${card.id}`}
+              card={card}
+            />
+          ))
+        }
         <Filter
           onChange={this.handleFilterChange}
         />

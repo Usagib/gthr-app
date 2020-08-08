@@ -1,6 +1,11 @@
 const CHANGE_FILTER = 'CHANGE_FILTER';
 
-const filterReducer = (state = 'Types', action) => {
+const initialFilter = {
+  types: 'Types',
+  colors: 'Colors', 
+}
+
+const filterReducer = (state = initialFilter, action) => {
   switch (action.type) {
     case CHANGE_FILTER:
       return action.filter;
