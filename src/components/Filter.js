@@ -28,27 +28,36 @@ const Filter = props => {
     onChange(value);
   };
   return (
-    <div>
-      <select
-        name="types"
-        onChange={handleChange}
-      >
-        {typesFilter.map(types => (
-          <option key={types}>
-            {types}
-          </option>
-        ))}
-      </select>
-      <select
-        name="colors"
-        onChange={handleChange}
-      >
-        {colorsFilter.map(color => (
-          <option key={color}>
-            {color}
-          </option>
-        ))}
-      </select>
+    <div className="bg-strain text-center" id="filterFront">
+      <div className="container">
+        <div className="row mt-0">
+          <div className="col-md-10 mx-auto mb-5">
+            <form>
+                <div class="row">
+                  <div class="col-md-4">
+                    <label for="selectTypes">Filter</label>
+                    <select name="types" onChange={handleChange} class="form-control" id="selectTypes">
+                      {typesFilter.map(types => (
+                        <option key={types}>
+                          {types}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div class="col-md-4">
+                    <select name="colors" onChange={handleChange} class="form-control" id="selectColors">
+                      {colorsFilter.map(colors => (
+                        <option key={colors}>
+                          {colors}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+              </form>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { changeFilter } from '../actions/index';
 import Card from '../components/Card';
 import Filter from '../components/Filter';
+import { Carousel } from 'react-bootstrap';
 
 class Catalog extends React.Component {
   constructor(props) {
@@ -27,14 +28,27 @@ class Catalog extends React.Component {
     }
     return (
       <div>
-        {
-          cardList.map(card => (
-            <Card
-              key={`card-${card.id}`}
-              card={card}
-            />
-          ))
-        }
+        <Carousel indicators={false}>
+          {
+            cardList.map(card => (
+              <Carousel.Item>
+                <img
+                  className="d-block w-100"
+                  src={card.imageUrl}
+                  alt={card.name}
+                />
+              <div className="container-fluid mt-0 mx-auto bg-strain card-details">
+                  <p>{card.name}</p>
+                  <p>{card.manaCost}</p>
+                  <p>{card.colors}</p>
+                  <p>{card.type}</p>
+                  <p>{card.text}</p>
+                  <p>{card.id}</p>
+                </div>
+              </Carousel.Item>
+            ))
+          }
+        </Carousel>
         <Filter
           onChange={this.handleFilterChange}
         />
