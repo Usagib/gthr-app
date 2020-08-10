@@ -60,7 +60,7 @@ class SearchForm extends React.Component {
       text: searchText,
     })
       .then(cards => {
-        let length = cards.length; // eslint-diable-line prefer destructuring
+        let length = cards.length; // eslint-disable-line prefer-destructuring
         if (cards.length > 20) {
           length = 20;
         }

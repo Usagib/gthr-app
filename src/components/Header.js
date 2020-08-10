@@ -4,7 +4,7 @@ const Header = () => (
   <div
     className="masthead"
     style={{
-      background: `url('header-bg.png')`,
+      background: `url('header-bg.png')`, // eslint-disable-line quotes
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
