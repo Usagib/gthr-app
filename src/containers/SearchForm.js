@@ -149,6 +149,6 @@ const mapStateToProps = state => ({
 SearchForm.propTypes = {
   searchSubmit: PropTypes.func.isRequired,
   cardList: PropTypes.array.isRequired,
-}:
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchForm);
