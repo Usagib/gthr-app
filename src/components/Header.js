@@ -4,7 +4,7 @@ const Header = () => (
   <div
     className="masthead"
     style={{
-      background: `url("header-bg.png")`,
+      background: `url('header-bg.png')`,
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
@@ -22,9 +22,7 @@ const Header = () => (
             <div className="device-mockup iphone6_plus portrait white">
               <div className="device">
                 <div className="screen">
-                  <img src="gthrlogowhite.png" className="img-fluid mt-1" alt=""/>
-                </div>
-                <div className="button">
+                  <img src="gthrlogowhite.png" className="img-fluid mt-1" alt="" />
                 </div>
               </div>
             </div>

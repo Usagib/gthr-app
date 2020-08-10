@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { searchCard } from '../actions/index';
+import PropTypes from 'prop-types';
 import mtg from 'mtgsdk';
+import { searchCard } from '../actions/index';
 
 class SearchForm extends React.Component {
   constructor(props) {
@@ -58,23 +59,23 @@ class SearchForm extends React.Component {
       name: searchName,
       text: searchText,
     })
-    .then(cards => {
-      let length = cards.length;
-      if (cards.length > 20) {
-        length = 20;
-      }
-      for (var i = 0; i < length; i++) {
-        if(cards[i].imageUrl !== cards[i].name) {
-          this.setState({
-            id: cards[i].id,
-            name: cards[i].name,
-            text: cards[i].text,
-            colors: cards[i].colors,
-            manaCost: cards[i].manaCost,
-            type: cards[i].type,
-            types: cards[i].types,
-            imageUrl: cards[i].imageUrl,
-          });
+      .then(cards => {
+        let length = cards.length;
+        if (cards.length > 20) {
+          length = 20;
+        }
+        for (let i = 0; i < length; i += 1) {
+          if(cards[i].imageUrl !== cards[i].name) {
+            this.setState({
+              id: cards[i].id,
+              name: cards[i].name,
+              text: cards[i].text,
+              colors: cards[i].colors,
+              manaCost: cards[i].manaCost,
+              type: cards[i].type,
+              types: cards[i].types,
+              imageUrl: cards[i].imageUrl,
+            });
           searchSubmit(this.state);
         }
       }
@@ -82,8 +83,7 @@ class SearchForm extends React.Component {
   }
 
   render() {
-    const { searchName, searchText, name, text, colors, manaCost, type, imageUrl} = this.state;
-    const { cardList } = this.props;
+    const { searchName, searchText } = this.state;
     return (
       <div className="searchForm bg-strain text-center py-1" id="searchForm">
         <div className="container">
@@ -145,5 +145,10 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps = state => ({
   cardList: state.cards,
 });
+
+SearchForm.propTypes = {
+  searchSubmit: PropTypes.func.isRequired,
+  cardList: PropTypes.array.isRequired,
+}:
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchForm);

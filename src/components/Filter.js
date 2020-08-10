@@ -29,9 +29,9 @@ function Filter(props) {
             <form>
               <div className="row">
                 <div className="col-md-4">
-                  <label className="filter-label" htmlFor="#selectTypes">Filter</label>
+                  <label className="filter-label" htmlFor="selectTypes">Filter</label>
                   <select
-                    name="types"
+                    name="selectTypes"
                     onChange={handleChange}
                     className="form-control"
                     id="selectTypes"

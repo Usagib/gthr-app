@@ -106,16 +106,6 @@ p {
     background-color: white;
   }
 
-  #mainNav.navbar-shrink .navbar-nav > li > a,
-  #mainNav.navbar-shrink .navbar-nav > li > a:focus {
-    color: #222;
-  }
-
-  #mainNav.navbar-shrink .navbar-nav > li > a:hover,
-  #mainNav.navbar-shrink .navbar-nav > li > a:focus:hover {
-    color: #fdcc52;
-  }
-
   .catalog-wrapper {
     width: 30%;
   }
