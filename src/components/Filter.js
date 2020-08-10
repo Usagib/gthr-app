@@ -29,7 +29,7 @@ function Filter(props) {
             <form>
               <div className="row">
                 <div className="col-md-4">
-                  <label className="filter-label" htmlFor="selectTypes">Filter</label>
+                  <h3 className="filter-label">Filter</h3>
                   <select
                     name="selectTypes"
                     onChange={handleChange}

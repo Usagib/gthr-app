@@ -60,12 +60,12 @@ class SearchForm extends React.Component {
       text: searchText,
     })
       .then(cards => {
-        let length = cards.length;
+        let length = cards.length; // eslint-diable-line prefer destructuring
         if (cards.length > 20) {
           length = 20;
         }
         for (let i = 0; i < length; i += 1) {
-          if(cards[i].imageUrl !== cards[i].name) {
+          if (cards[i].imageUrl !== cards[i].name) {
             this.setState({
               id: cards[i].id,
               name: cards[i].name,
@@ -76,10 +76,10 @@ class SearchForm extends React.Component {
               types: cards[i].types,
               imageUrl: cards[i].imageUrl,
             });
-          searchSubmit(this.state);
+            searchSubmit(this.state);
+          }
         }
-      }
-    });
+      });
   }
 
   render() {
@@ -142,13 +142,8 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-const mapStateToProps = state => ({
-  cardList: state.cards,
-});
-
 SearchForm.propTypes = {
   searchSubmit: PropTypes.func.isRequired,
-  cardList: PropTypes.array.isRequired,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchForm);
+export default connect(null, mapDispatchToProps)(SearchForm);

@@ -40,23 +40,23 @@ class Catalog extends React.Component {
                 <div className="container-fluid mt-0 mx-auto bg-strain card-details">
                   <p>
                     Name:
-                      {card.name}
+                    {card.name}
                     <br />
                     Mana Cost:
-                      {card.manaCost}
+                    {card.manaCost}
                     <br />
                     Colors:
-                      {card.colors}
+                    {card.colors}
                     <br />
                     Types:
-                      {card.type}
+                    {card.type}
                     <br />
                     <br />
                     {card.text}
                     <br />
                     <br />
                     ID:
-                      {card.id}
+                    {card.id}
                   </p>
                 </div>
               </Carousel.Item>
@@ -85,7 +85,7 @@ Catalog.defaultProps = {
 };
 
 Catalog.propTypes = {
-  changeFilter: PropTypes.func,
+  changeFilter: PropTypes.func.isRequired,
   cardList: PropTypes.arrayOf(PropTypes.string).isRequired,
   filter: PropTypes.string,
 };
