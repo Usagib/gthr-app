@@ -1,13 +1,15 @@
 import React from 'react';
 
-
 const Header = () => (
-  <div className="masthead" style={{
+  <div
+    className="masthead"
+    style={{
       background: `url("header-bg.png")`,
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
-  }}>
+    }}
+  >
     <div className="container h-auto">
       <div className="row h-auto">
         <div className="col-lg-7 my-auto">
@@ -20,7 +22,7 @@ const Header = () => (
             <div className="device-mockup iphone6_plus portrait white">
               <div className="device">
                 <div className="screen">
-                  <img src="gthrlogowhite.png" className="img-fluid mt-1" alt="" />
+                  <img src="gthrlogowhite.png" className="img-fluid mt-1" alt=""/>
                 </div>
                 <div className="button">
                 </div>
@@ -31,6 +33,6 @@ const Header = () => (
       </div>
     </div>
   </div>
-)
+);
 
 export default Header;

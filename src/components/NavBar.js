@@ -7,7 +7,7 @@ const Navbar = () => (
         <img src="gthrlogowhite.png" className="logoimg" alt="logo" />
       </a>
       <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <i className="navbar-toggler-icon"></i>
+        <i className="navbar-toggler-icon"/>
       </button>
       <div className="collapse navbar-collapse" id="navbarResponsive">
         <ul className="navbar-nav ml-auto">
@@ -30,6 +30,6 @@ const Navbar = () => (
       </div>
     </div>
   </nav>
-)
+);
 
 export default Navbar;

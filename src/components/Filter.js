@@ -4,9 +4,8 @@ import PropTypes from 'prop-types';
 function Filter(props) {
   const [
     typesFilter,
-    setTypesFilter,
   ] = useState({
-    typesFilter:[
+    typesFilter: [
       'Type',
       'Instant',
       'Sorcery',
@@ -28,30 +27,33 @@ function Filter(props) {
         <div className="row mt-0">
           <div className="col-md-10 mx-auto mb-5">
             <form>
-                <div class="row">
-                  <div class="col-md-4">
-                    <label className="filter-label" for="selectTypes">Filter</label>
-                    <select
-                      name="types"
-                      onChange={handleChange}
-                      class="form-control"
-                      id="selectTypes"
-                    >
-                      {typesFilter.typesFilter.map(types => (
-                        <option key={types}>
-                          {types}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
+              <div className="row">
+                <div className="col-md-4">
+                  <label className="filter-label" htmlFor="#selectTypes">Filter</label>
+                  <select
+                    name="types"
+                    onChange={handleChange}
+                    className="form-control"
+                    id="selectTypes"
+                  >
+                    {typesFilter.typesFilter.map(types => (
+                      <option key={types}>
+                        {types}
+                      </option>
+                    ))}
+                  </select>
                 </div>
-              </form>
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
   );
-};
+}
 
+Filter.propTypes = {
+  onChange: PropTypes.func.isRequired,
+};
 
 export default Filter;

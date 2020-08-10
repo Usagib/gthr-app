@@ -3,15 +3,15 @@ body {
   width: 100%;
   height: 100%;
   background: #16222a;
-  background: -webkit-linear-gradient(to right, #16222a, #3a6073);
   background: linear-gradient(to right, #16222a, #3a6073);
 }
 
 a {
-  transition: all .35s;
+  transition: all 0.35s;
 }
 
-a:hover, a:focus {
+a:hover,
+a:focus {
   color: #fcbd20;
 }
 
@@ -21,7 +21,6 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
   font-weight: 200;
   letter-spacing: 1px;
 }
@@ -36,7 +35,7 @@ p {
   color: #eee;
   font-size: 12px;
   margin-top: 10px;
-  padding-top: 0px;
+  padding-top: 0;
 }
 
 .logoimg {
@@ -45,15 +44,13 @@ p {
 
 .bg-strain {
   background: #16222a;
-  background: -webkit-linear-gradient(to right, #16222a, #3a6073);
   background: linear-gradient(to right, #16222a, #3a6073);
 }
 
 #mainNav {
   border-color: rgba(34, 34, 34, 0.05);
   background-color: white;
-  transition: all .35s;
-  font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
+  transition: all 0.35s;
   font-weight: 200;
   letter-spacing: 1px;
 }
@@ -66,7 +63,6 @@ p {
 
 #mainNav .navbar-nav > li > a {
   font-size: 12px;
-  font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
   letter-spacing: 2px;
   text-transform: uppercase;
 }
@@ -99,10 +95,12 @@ p {
   #mainNav .navbar-nav > li > a:focus {
     color: rgba(255, 255, 255, 0.7);
   }
+
   #mainNav .navbar-nav > li > a:hover,
   #mainNav .navbar-nav > li > a:focus:hover {
     color: white;
   }
+
   #mainNav.navbar-shrink {
     border-color: rgba(34, 34, 34, 0.1);
     background-color: white;
@@ -110,22 +108,24 @@ p {
 
   #mainNav.navbar-shrink .navbar-nav > li > a,
   #mainNav.navbar-shrink .navbar-nav > li > a:focus {
-    color: #222222;
+    color: #222;
   }
+
   #mainNav.navbar-shrink .navbar-nav > li > a:hover,
   #mainNav.navbar-shrink .navbar-nav > li > a:focus:hover {
     color: #fdcc52;
   }
+
   .catalog-wrapper {
     width: 30%;
   }
 }
 
-masthead {
+.masthead {
   position: relative;
   width: 100%;
-  padding-top: 150px;
-  padding-bottom: 100px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   color: white;
 }
 
@@ -156,14 +156,17 @@ masthead {
     padding-top: 0;
     padding-bottom: 0;
   }
+  
   .masthead .header-content {
     margin-bottom: 0;
     text-align: left;
   }
-  masthead .header-content h1 {
+
+  .masthead .header-content h1 {
     font-size: 60px;
   }
-  masthead .device-container {
+
+  .masthead .device-container {
     max-width: 325px;
   }
 }
