@@ -13,13 +13,16 @@ const Navbar = () => (
       <div className="collapse navbar-collapse" id="navbarResponsive">
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
-            <a className="nav-link js-scroll-trigger" href="#download">Add to Catalog</a>
+            <a className="nav-link js-scroll-trigger" href="#catalog">Catalog</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link js-scroll-trigger" href="#features">Filter</a>
+            <a className="nav-link js-scroll-trigger" href="#searchForm">Add to Catalog</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link js-scroll-trigger" href="#features">Reset</a>
+            <a className="nav-link js-scroll-trigger" href="#filter">Filter</a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link js-scroll-trigger" href="#searchForm">Reset</a>
           </li>
           <li className="nav-item">
             <a className="nav-link js-scroll-trigger" href="https://github.com/Usagib/gthr-app">Docs</a>

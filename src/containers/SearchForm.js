@@ -90,7 +90,7 @@ class SearchForm extends React.Component {
     const { searchName, searchText, name, text, colors, manaCost, type, imageUrl} = this.state;
     const { cardList } = this.props;
     return (
-      <div className="bg-strain text-center py-1" id="searchFront">
+      <div className="searchForm bg-strain text-center py-1" id="searchForm">
         <div className="container">
           <div className="col-md-10 mx-auto my-2">
             <form>

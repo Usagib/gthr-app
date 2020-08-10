@@ -31,7 +31,7 @@ class Catalog extends React.Component {
     }
 
     return (
-      <div>
+      <div className="catalog-wrapper" id="catalog">
         <Carousel indicators={false}>
           {
             filterCatalog.map(card => (

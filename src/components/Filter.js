@@ -19,14 +19,14 @@ const Filter = props => {
     onChange(value);
   };
   return (
-    <div className="bg-strain text-center" id="filterFront">
+    <div className="bg-strain text-center" id="filter">
       <div className="container">
         <div className="row mt-0">
           <div className="col-md-10 mx-auto mb-5">
             <form>
                 <div class="row">
                   <div class="col-md-4">
-                    <label for="selectTypes">Filter</label>
+                    <label className="filter-label" for="selectTypes">Filter</label>
                     <select
                       name="types"
                       onChange={handleChange}
