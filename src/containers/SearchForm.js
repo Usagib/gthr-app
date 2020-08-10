@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { searchCard } from '../actions/index';
 import Card from '../components/Card';
 import mtg from 'mtgsdk';
+import Alert from 'react-bootstrap/Alert';
 
 
 class SearchForm extends React.Component {
@@ -14,9 +15,9 @@ class SearchForm extends React.Component {
       searchText:'',
       name: 'Nine Lives',
       text: 'Hexproof\nIf a source would deal damage to you, prevent that damage and put an incarnation counter on Nine Lives.\nWhen there are nine or more incarnation counters on Nine Lives, exile it.\nWhen Nine Lives leaves the battlefield, you lose the game.',
-      colors: Array [ "White" ],
+      colors: ["White", ],
       manaCost: '{1}{W}{W}',
-      types: Array [ "Enchantment" ],
+      types: ["Enchantment", ],
       type: 'Enchantment',
       imageUrl: 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=488243&type=card',
       card: '',
@@ -45,10 +46,17 @@ class SearchForm extends React.Component {
   }
 
   handleApiCall(event) {
-    console.log('apicalled');
     const { searchName, searchText } = this.state;
     const { searchSubmit } = this.props;
     event.preventDefault();
+    this.setState({
+      name: '',
+      text: '',
+      colors: '',
+      manaCost: '',
+      type: '',
+      imageUrl: '',
+    });
     mtg.card.where({
       name: searchName,
       text: searchText,
@@ -61,26 +69,20 @@ class SearchForm extends React.Component {
       console.log('success state setting');
       console.log(cards);
       for (var i = 0; i < length; i++) {
-        this.setState({
-          id: cards[i].id,
-          name: cards[i].name,
-          text: cards[i].text,
-          colors: cards[i].colors,
-          manaCost: cards[i].manaCost,
-          type: cards[i].type,
-          types: cards[i].types,
-          imageUrl: cards[i].imageUrl,
-        });
-        searchSubmit(this.state);
+        if(cards[i].imageUrl !== cards[i].name) {
+          this.setState({
+            id: cards[i].id,
+            name: cards[i].name,
+            text: cards[i].text,
+            colors: cards[i].colors,
+            manaCost: cards[i].manaCost,
+            type: cards[i].type,
+            types: cards[i].types,
+            imageUrl: cards[i].imageUrl,
+          });
+          searchSubmit(this.state);
+        }
       }
-      this.setState({
-        name: '',
-        text: '',
-        colors: '',
-        manaCost: '',
-        type: '',
-        imageUrl: '',
-      });
     });
   }
 
@@ -119,7 +121,7 @@ class SearchForm extends React.Component {
                     onClick={this.handleApiCall}
                     className="btn btn-light"
                   >
-                    Call
+                    Add to Catalog
                   </button>
 
                   <button

@@ -64,6 +64,9 @@ section h2 {
 
 .card-details p {
   color: #eee;
+  font-size: 12px;
+  margin-top: 10px;
+  padding-top: 0px;
 }
 
 .logoimg {

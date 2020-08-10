@@ -20,17 +20,21 @@ class Catalog extends React.Component {
     const { cardList, filter } = this.props;
     let filterCatalog = cardList;
 
-    if(filter.types !== 'Types') {
+    if(filter !== 'Type') {
+      console.log('type different');
       filterCatalog = cardList.filter(card => card.types.includes(filter));
+      console.log(filterCatalog);
+    } else {
+      console.log('set to initial cardlist');
+      filterCatalog = cardList;
+      console.log(filterCatalog);
     }
-    if (filter.colors !== 'Colors') {
-      filterCatalog = cardList.filter(card => card.colors.includes(filter));
-    }
+
     return (
       <div>
         <Carousel indicators={false}>
           {
-            cardList.map(card => (
+            filterCatalog.map(card => (
               <Carousel.Item>
                 <img
                   className="d-block w-100"
@@ -38,13 +42,13 @@ class Catalog extends React.Component {
                   alt={card.name}
                 />
               <div className="container-fluid mt-0 mx-auto bg-strain card-details">
-                  <p>{card.name}</p>
-                  <p>{card.manaCost}</p>
-                  <p>{card.colors}</p>
-                  <p>{card.type}</p>
-                  <p>{card.text}</p>
-                  <p>{card.id}</p>
-                </div>
+                  <p>Name: {card.name}<br />
+                  Mana Cost: {card.manaCost}<br />
+                  Colors: {card.colors}<br />
+                Types: {card.type}<br /><br />
+                {card.text}<br /><br />
+                  ID: {card.id}</p>
+              </div>
               </Carousel.Item>
             ))
           }
@@ -75,7 +79,7 @@ const mapStateToProps = state => ({
 });
 
 Catalog.defaultProps = {
-  filter: 'Types',
+  filter: 'Type',
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Catalog);
