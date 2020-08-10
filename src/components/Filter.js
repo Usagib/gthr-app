@@ -1,18 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-const typesFilter = [
-  'Type',
-  'Instant',
-  'Sorcery',
-  'Artifact',
-  'Creature',
-  'Enchantment',
-  'Land',
-  'Planeswalker',
-];
-
-const Filter = props => {
+function Filter(props) {
+  const [
+    typesFilter,
+    setTypesFilter,
+  ] = useState({
+    typesFilter:[
+      'Type',
+      'Instant',
+      'Sorcery',
+      'Artifact',
+      'Creature',
+      'Enchantment',
+      'Land',
+      'Planeswalker',
+    ],
+  });
   const { onChange } = props;
   const handleChange = event => {
     const { value } = event.target;
@@ -33,7 +37,7 @@ const Filter = props => {
                       class="form-control"
                       id="selectTypes"
                     >
-                      {typesFilter.map(types => (
+                      {typesFilter.typesFilter.map(types => (
                         <option key={types}>
                           {types}
                         </option>

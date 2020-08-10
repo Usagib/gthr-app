@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { changeFilter } from '../actions/index';
-import Card from '../components/Card';
 import Filter from '../components/Filter';
 import { Carousel } from 'react-bootstrap';
 
@@ -56,14 +55,6 @@ class Catalog extends React.Component {
         <Filter
           onChange={this.handleFilterChange}
         />
-        {
-          filterCatalog.map(card => (
-            <Card
-              key={`card-${card.id}`}
-              card={card}
-            />
-          ))
-        }
       </div>
     );
   }

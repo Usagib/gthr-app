@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { searchCard } from '../actions/index';
-import Card from '../components/Card';
 import mtg from 'mtgsdk';
 import Alert from 'react-bootstrap/Alert';
 
@@ -30,9 +29,9 @@ class SearchForm extends React.Component {
     event.preventDefault();
     switch (event.target.id) {
       case 'Name':
-        this.setState({
-          searchName: event.target.value,
-        });
+      this.setState({
+        searchName: event.target.value,
+      });
         break;
       case 'Text':
         this.setState({

@@ -7,10 +7,6 @@ body {
   background: linear-gradient(to right, #16222a, #3a6073);
 }
 
-body {
-  font-family: 'Muli', 'Helvetica', 'Arial', 'sans-serif';
-}
-
 a {
   transition: all .35s;
 }
@@ -99,10 +95,6 @@ p {
 }
 
 @media (min-width: 992px) {
-  #mainNav {
-    border-color: transparent;
-    background-color: transparent;
-  }
   #mainNav .navbar-nav > li > a,
   #mainNav .navbar-nav > li > a:focus {
     color: rgba(255, 255, 255, 0.7);
