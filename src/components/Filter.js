@@ -49,7 +49,7 @@ function Filter(props) {
 }
 
 Filter.propTypes = {
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
 };
 
 export default Filter;
