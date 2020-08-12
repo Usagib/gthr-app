@@ -86,7 +86,7 @@ Catalog.defaultProps = {
 
 Catalog.propTypes = {
   changeFilter: PropTypes.func.isRequired,
-  cardList: PropTypes.arrayOf(PropTypes.string).isRequired,
+  cardList: PropTypes.arrayOf(PropTypes.object).isRequired,
   filter: PropTypes.string,
 };
 
