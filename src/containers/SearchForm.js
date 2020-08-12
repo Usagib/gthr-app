@@ -129,7 +129,7 @@ class SearchForm extends React.Component {
 
 const mapStateToProps = state => ({
   cardList: state.cards,
-})
+});
 
 const mapDispatchToProps = dispatch => ({
   searchSubmit: card => {

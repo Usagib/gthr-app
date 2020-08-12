@@ -2,16 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Filter(props) {
-  const typesFilter= [
-      'Type',
-      'Instant',
-      'Sorcery',
-      'Artifact',
-      'Creature',
-      'Enchantment',
-      'Land',
-      'Planeswalker',
-    ];
+  const typesFilter = [
+    'Type',
+    'Instant',
+    'Sorcery',
+    'Artifact',
+    'Creature',
+    'Enchantment',
+    'Land',
+    'Planeswalker',
+  ];
   const { onChange } = props;
   const handleChange = event => {
     const { value } = event.target;
@@ -49,7 +49,7 @@ function Filter(props) {
 }
 
 Filter.propTypes = {
-  onChange: PropTypes.func,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default Filter;
