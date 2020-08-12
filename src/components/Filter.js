@@ -2,10 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 function Filter(props) {
-  const [
-    typesFilter,
-  ] = useState({
-    typesFilter: [
+  const typesFilter= [
       'Type',
       'Instant',
       'Sorcery',
@@ -14,8 +11,7 @@ function Filter(props) {
       'Enchantment',
       'Land',
       'Planeswalker',
-    ],
-  });
+    ];
   const { onChange } = props;
   const handleChange = event => {
     const { value } = event.target;
@@ -36,7 +32,7 @@ function Filter(props) {
                     className="form-control"
                     id="selectTypes"
                   >
-                    {typesFilter.typesFilter.map(types => (
+                    {typesFilter.map(types => (
                       <option key={types}>
                         {types}
                       </option>
