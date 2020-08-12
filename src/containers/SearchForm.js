@@ -8,17 +8,8 @@ class SearchForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: 'c7180237-81df-50d5-86b7-baad1aad2e92',
       searchName: '',
       searchText: '',
-      name: 'Nine Lives',
-      text: 'Hexproof\nIf a source would deal damage to you, prevent that damage and put an incarnation counter on Nine Lives.\nWhen there are nine or more incarnation counters on Nine Lives, exile it.\nWhen Nine Lives leaves the battlefield, you lose the game.',
-      colors: ['White'],
-      manaCost: '{1}{W}{W}',
-      types: ['Enchantment'],
-      type: 'Enchantment',
-      imageUrl: 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=488243&type=card',
-      card: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleApiCall = this.handleApiCall.bind(this);
@@ -136,6 +127,10 @@ class SearchForm extends React.Component {
   }
 }
 
+const mapStateToProps = state => ({
+  cardList: state.cards,
+})
+
 const mapDispatchToProps = dispatch => ({
   searchSubmit: card => {
     dispatch(searchCard(card));
@@ -146,4 +141,4 @@ SearchForm.propTypes = {
   searchSubmit: PropTypes.func.isRequired,
 };
 
-export default connect(null, mapDispatchToProps)(SearchForm);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchForm);
