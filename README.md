@@ -5,7 +5,7 @@
 
  </a>
 
- <h3 align="center">GTHR: Catalog App bootstraped with React + Redux</h3>
+ <h3 align="center">GTHR: Catalog App bootstrapped with React + Redux</h3>
 
  <p align="center">
   Catalog creator for Magic The Gathering cards using React + Redux
@@ -69,10 +69,12 @@ You can acess the live demo or:
 
 API used
 * [MtgAPI](https://docs.magicthegathering.io/)
+
 ## Contact
 
-Eduardo Bonilla Github [https://github.com/UsagiB](https://github.com/UsagiB)
-Eduardo Bonilla Portfolio [Usagib.github.io](http://usagib.github.io)
+* Eduardo Bonilla Cáceres - eduardobonillac@gmail.com
+* [My Portfolio](https://usagib.surge.sh)
+* [My Twitter](https://twitter.com/UsagiBonilla)
 
 
 ## Show your support
